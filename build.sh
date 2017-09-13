@@ -16,3 +16,12 @@ echo -e "\033[32mDownload consul...\033[0m"
 wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
 unzip consul_${CONSUL_VERSION}_linux_amd64.zip -d usr/bin
 rm -f consul_${CONSUL_VERSION}_linux_amd64.zip
+
+
+echo -e "\033[32mBuilding rpm...\033[0m"
+fpm -s dir -t rpm -n "consul" -v ${CONSUL_VERSION} \
+    --pre-install rpmscripts/preinstall.sh \
+    --post-install rpmscripts/postinstall.sh \
+    --pre-uninstall rpmscripts/preuninstall.sh \
+    etc usr var
+
