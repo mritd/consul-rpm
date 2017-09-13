@@ -1,0 +1,18 @@
+[Unit]
+Description=Consul Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+WorkingDirectory=/var/lib/consul/
+EnvironmentFile=-/etc/consul/consul.conf
+User=consul
+# set GOMAXPROCS to number of processors
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/bin/consul $\{CONSUL_CMD\}"
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
