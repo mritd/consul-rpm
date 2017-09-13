@@ -4,6 +4,7 @@
     "log_level": "INFO",
     "node_name": "consul1",
     "server": true,
+    "ui": true,
     "bootstrap_expect": 1,
     "bind_addr": "192.168.1.11",
     "client_addr": "192.168.1.11",
