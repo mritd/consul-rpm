@@ -25,4 +25,4 @@ fpm -s dir -t rpm -n "consul" -v ${CONSUL_VERSION} \
     --pre-install rpmscripts/preinstall.sh \
     --post-install rpmscripts/postinstall.sh \
     --pre-uninstall rpmscripts/preuninstall.sh \
-    etc usr var
+    etc usr
