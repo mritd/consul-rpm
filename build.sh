@@ -14,6 +14,7 @@ rm -f consul_${CONSUL_VERSION}_linux_amd64.zip
 
 echo -e "\033[32mDownload consul...\033[0m" 
 wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
+if [ ! -d usr/bin ]; then mkdir usr/bin; fi
 unzip consul_${CONSUL_VERSION}_linux_amd64.zip -d usr/bin
 rm -f consul_${CONSUL_VERSION}_linux_amd64.zip
 
@@ -24,4 +25,3 @@ fpm -s dir -t rpm -n "consul" -v ${CONSUL_VERSION} \
     --post-install rpmscripts/postinstall.sh \
     --pre-uninstall rpmscripts/preuninstall.sh \
     etc usr var
-
