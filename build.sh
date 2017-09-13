@@ -9,8 +9,8 @@ if [ "" == "${CONSUL_VERSION}" ];then
 fi
 
 echo -e "\033[32mClean old files...\033[0m"
-rm -f usr/bin/consul
-rm -f consul_${CONSUL_VERSION}_linux_amd64.zip
+rm -f usr/bin/consul consul_${CONSUL_VERSION}_linux_amd64.zip *.rpm
+
 
 echo -e "\033[32mDownload consul...\033[0m" 
 wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
