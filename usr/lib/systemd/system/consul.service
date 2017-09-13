@@ -7,10 +7,9 @@ Wants=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/var/lib/consul/
-EnvironmentFile=-/etc/consul/consul.conf
 User=consul
 # set GOMAXPROCS to number of processors
-ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/bin/consul ${CONSUL_CMD}"
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/bin/consul agent -config-file /etc/consul/consul.json"
 Restart=on-failure
 LimitNOFILE=65536
 
