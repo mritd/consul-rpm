@@ -10,6 +10,7 @@
     "client_addr": "192.168.1.11",
     "retry_join": ["192.168.1.12","192.168.1.13"],
     "retry_interval": "10s",
+    "protocol": 3,
     "raft_protocol": 3,
     "enable_debug": false,
     "rejoin_after_leave": true,
